@@ -14,6 +14,10 @@ To install prerequisits:
    brew install yarn
 
 
+Configuration:
+"secret" ENV settings (set in application.yml in development, and via commandline in Heroku or AWS)
+* SENDGRID_PASSWORD
+* SENDGRID_USERNAME
 
 # README
 

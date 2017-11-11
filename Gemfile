@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'clearance', '~> 1.16.1'
+gem 'figaro', '~> 1.1.1'
 
 group :development, :test do
   gem 'pry-byebug', '~> 3.5.0'
