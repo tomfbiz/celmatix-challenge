@@ -16,11 +16,12 @@ gem 'webpacker'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'clearance', '~> 1.16.1'
 
 group :development, :test do
   gem 'pry-byebug', '~> 3.5.0'
   gem 'rspec-rails', '~> 3.6.1'
-  gem 'factory_girl_rails', '~> 4.8.0'
+  gem 'factory_bot_rails'
 end
 
 group :development do
