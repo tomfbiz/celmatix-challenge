@@ -22,6 +22,7 @@ gem 'figaro', '~> 1.1.1'
 group :development, :test do
   gem 'pry-byebug', '~> 3.5.0'
   gem 'rspec-rails', '~> 3.6.1'
+  gem 'shoulda-matchers', '~> 3.1'
   gem 'factory_bot_rails'
 end
 
