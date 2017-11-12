@@ -19,6 +19,10 @@ Configuration:
 * SENDGRID_PASSWORD
 * SENDGRID_USERNAME
 
+
+To load the products from JSON run the following rake tast:
+* rake data:load_products
+
 # README
 
 This README would normally document whatever steps are necessary to get the
