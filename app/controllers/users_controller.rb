@@ -1,25 +1,20 @@
 class UsersController < Clearance::UsersController
-##
-# override create method to add welcome email
-# TODO: send_welcome_email could go into a concern
+  after_action :send_welcome_email, only: :create
 
-  def create
-    @user = user_from_params
+  REDIRECT_STATUS = 302
 
-    if @user.save
-      sign_in @user
-      send_welcome_email
-      redirect_back_or url_after_create
-    else
-      render template: "users/new"
+  private
+
+  def send_welcome_email
+    if created_successully?
+      # TODO for a real production app, 
+      # remove deliver_now after configuring ActiveJob
+      NotifierMailer.welcome(@user).deliver_now
     end
   end
 
-  private
-  def send_welcome_email
-    # TODO for a real production app, 
-    # remove deliver_now after configuring Active Job
-    NotifierMailer.welcome(@user).deliver_now
-  end
+  def created_successully?
+    response.status == REDIRECT_STATUS
+  end  
 end
   
