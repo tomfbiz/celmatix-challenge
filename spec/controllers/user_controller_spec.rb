@@ -5,11 +5,11 @@ require "clearance/rspec"
 RSpec.describe UsersController, type: :controller do
 
   describe "POST #create" do
-    it "returns success" do
+    it "redirects when successful" do
       user_attributes = attributes_for(:user)
 
       post :create, params: {user: user_attributes}
-      expect(response).to have_http_status(:success)
+      expect(response).to redirect_to(root_path)
       
 
     end      
@@ -17,7 +17,7 @@ RSpec.describe UsersController, type: :controller do
     it "sends a welcome email" do
       user_attributes = attributes_for(:user)
       
-      expect(post :create, params: {user: user_attributes})
+      expect { post :create, params: {user: user_attributes} }
         .to change { ActionMailer::Base.deliveries.count }.by(1)
     end
   end
