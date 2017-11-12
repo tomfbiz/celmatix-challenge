@@ -20,13 +20,8 @@ ActiveRecord::Schema.define(version: 20171112155924) do
     t.string "brand"
     t.string "model"
     t.string "sku"
-    t.integer "price", null: false
+    t.decimal "price", precision: 8, scale: 2, null: false
     t.string "desc"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "table_products", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
