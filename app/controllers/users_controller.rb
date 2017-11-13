@@ -14,6 +14,6 @@ class UsersController < Clearance::UsersController
   end
 
   def created_successully?
-    response.status == REDIRECT_STATUS
+    response.status == REDIRECT_STATUS && signed_in?
   end
 end
