@@ -2,10 +2,9 @@ require "rails_helper"
 
 RSpec.describe NotifierMailer, type: :mailer do
   describe "welcome" do
-
     it "renders the headers" do
       user = create(:user)
-      
+
       mail = NotifierMailer.welcome(user)
 
       expect(mail.subject).to match("Welcome")
@@ -15,11 +14,10 @@ RSpec.describe NotifierMailer, type: :mailer do
 
     it "renders the body" do
       user = create(:user)
-      
+
       mail = NotifierMailer.welcome(user)
-  
+
       expect(mail.body.encoded).to match("thanks for resigering")
     end
   end
-
 end
