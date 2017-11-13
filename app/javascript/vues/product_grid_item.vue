@@ -1,0 +1,48 @@
+<template>
+  <div class="grid-item">
+    <h2>{{ product.name }}</h2>
+    brand: {{product.brand}}<br>
+    model: {{product.model}}<br>
+    ${{product.price}}
+    </div>
+</template>
+
+<script>
+
+export default {
+    props: {
+      product:  {
+      type: Object,
+      default: () => ({
+        id: null,
+        name: "",
+        brand: "", 
+        model: "", 
+        sku: "", 
+        price: 0.00, 
+        desc: ""})
+    }
+  },
+  data: () => ({
+    test: 123
+  }),
+  methods: {
+  },
+  created() {
+    console.log(this.product.price)
+  }
+
+}
+</script>
+
+<style scoped>
+.grid-item {
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 20px;
+
+}
+  h2 {
+    font-size: 1em;
+  }
+</style>
