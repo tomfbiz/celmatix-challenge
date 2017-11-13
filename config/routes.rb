@@ -13,4 +13,8 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 
   root to: "shop#index"
+
+  namespace :api, defaults: { format: :json } do
+    resources :products, only: [:index]
+  end
 end

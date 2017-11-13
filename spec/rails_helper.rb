@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run "rails generate rspec:install"
 require "spec_helper"
+require "support/request_helpers"
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../../config/environment", __FILE__)
 # Prevent database truncation if the environment is production
@@ -51,7 +52,11 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Allow the FoactoryBot methods without the FactoryBot prefix
   config.include FactoryBot::Syntax::Methods
+
+  config.include Requests::JsonHelpers, type: :request
 end
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
