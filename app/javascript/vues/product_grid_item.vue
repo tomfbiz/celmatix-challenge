@@ -3,7 +3,8 @@
     <h2>{{ product.name }}</h2>
     brand: {{product.brand}}<br>
     model: {{product.model}}<br>
-    ${{product.price}}
+    ${{product.price}}<br><br>
+    <button @click="request_modal">details</button>
     </div>
 </template>
 
@@ -27,11 +28,10 @@ export default {
     test: 123
   }),
   methods: {
-  },
-  created() {
-    console.log(this.product.price)
+    request_modal() {
+      this.$emit("show-details",this.product)
+    }
   }
-
 }
 </script>
 

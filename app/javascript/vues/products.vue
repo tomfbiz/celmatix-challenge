@@ -1,7 +1,8 @@
 <template>
   <div id="app"  class="product-list">
+    <product-modal v-if="showModal" :product="modalProduct" @close="showModal = false"></product-modal>
     <div v-for="product in products">
-      <product-grid-item :product="product"></product-grid-item>
+      <product-grid-item :product="product" v-on:show-details="showDetails"></product-grid-item>
     </div>
   </div>
 </template>
@@ -9,23 +10,33 @@
 <script>
 import axios from 'axios';
 import productGridItem from './product_grid_item.vue'
+import productModal from './product_modal.vue'
 
 export default {
   components: {
-    productGridItem
+    productGridItem,
+    productModal
   },
   data: function () {
     return {
-      products: {}
+      products: {},
+      modalProduct: {},
+      showModal: false
     }
   },
-    created() {
-      let token = document.getElementsByName('csrf-token')[0].getAttribute('content');
-      axios.defaults.headers.common['X-CSRF-Token'] = token;
-      axios.defaults.headers.common['Accept'] = 'application/json';
-      axios.get('/api/products')
-        .then(response =>
-        this.products = response.data.products)
+  methods: {
+    showDetails(product) {
+      this.modalProduct = product
+      this.showModal = true;
+    }
+  },
+  created() {
+    let token = document.getElementsByName('csrf-token')[0].getAttribute('content');
+    axios.defaults.headers.common['X-CSRF-Token'] = token;
+    axios.defaults.headers.common['Accept'] = 'application/json';
+    axios.get('/api/products')
+      .then(response =>
+      this.products = response.data.products)
   }
 }
 </script>
