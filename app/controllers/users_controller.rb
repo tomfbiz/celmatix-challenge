@@ -7,9 +7,7 @@ class UsersController < Clearance::UsersController
 
   def send_welcome_email
     if created_successully?
-      # TODO: for a real production app,
-      # remove deliver_now after configuring ActiveJob
-      NotifierMailer.welcome(@user).deliver_now
+      NotifierMailer.welcome(@user)
     end
   end
 
