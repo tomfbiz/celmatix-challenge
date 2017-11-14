@@ -651,7 +651,3 @@ Rails/TimeZone:
 Rails/Validation:
   Description: 'Use validates :attribute, hash of validations.'
   Enabled: false
-
-Style/ClassAndModuleChildren:
-  Exclude:
-    - 'app/controllers/api/products_controller.rb'
