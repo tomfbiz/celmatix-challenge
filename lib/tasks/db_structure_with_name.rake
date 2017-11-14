@@ -5,7 +5,13 @@ namespace :db do
       "adapter"  => adapter,
       "database" => database_name,
     }
-    ActiveRecord::Tasks::DatabaseTasks.structure_dump(configuration, file_name(args))
+    file = ActiveRecord::Tasks::DatabaseTasks.structure_dump(configuration, file_name(args))
+    
+    if file
+      puts "Successfully created structure dump in #{file.path}"
+    else
+      puts "An error occured creating the sturcture dump to file #{file_name}"
+    end
   end
 
   private
