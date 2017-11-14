@@ -1,5 +1,9 @@
 This app was build using webpack and vue.js
-the development environment requires 
+
+It is deployed at https://celmatix-challenge-tomfbiz.herokuapp.com/
+The code is at https://github.com/tomfbiz/celmatix-challenge
+
+The development environment requires 
 * ruby 2.3.1
 * rails 5.1.4
 * node 6.11.2
