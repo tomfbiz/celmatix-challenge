@@ -19,13 +19,17 @@ To install prerequisits:
 
 
 Configuration:
-"secret" ENV settings (set in application.yml in development, and via commandline in Heroku or AWS)
+"secret" ENV settings (set in application.yml in development, and by Sendgrid Heroku add-on in production)
 * SENDGRID_PASSWORD
 * SENDGRID_USERNAME
 
 
 To load the products from JSON run the following rake tast:
 * rake data:load_products
+
+To dump the sql database schema, run
+* rake db:structure_with_name[_filename_]
+This will put the sql file in tmp/_filename_
 
 # README
 
