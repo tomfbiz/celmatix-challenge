@@ -6,7 +6,7 @@ namespace :db do
       "database" => database_name,
     }
     file = ActiveRecord::Tasks::DatabaseTasks.structure_dump(configuration, file_name(args))
-    
+
     if file
       puts "Successfully created structure dump in #{file.path}"
     else

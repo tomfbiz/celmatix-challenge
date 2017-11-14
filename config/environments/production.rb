@@ -102,6 +102,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # For Heroku
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
-  
+  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"]
 end
