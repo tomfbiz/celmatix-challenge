@@ -17,10 +17,9 @@ export default {
       default: () => ({
         id: null,
         name: "",
-        brand: "", 
-        model: "", 
-        sku: "", 
-        price: 0.00, 
+        brand: "",
+        model: "",
+        price: 0.00,
         desc: ""})
     }
   },

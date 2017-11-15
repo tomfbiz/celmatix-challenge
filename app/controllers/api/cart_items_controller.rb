@@ -15,5 +15,9 @@ module API
         end
       end
     end
+
+    def index
+      render json: current_user.cart.products
+    end
   end
 end
