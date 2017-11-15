@@ -22,6 +22,7 @@ module API
                   else
                     []
                   end
+      render formats: :json
     end
   end
 end
