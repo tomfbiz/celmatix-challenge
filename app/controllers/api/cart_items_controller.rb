@@ -17,7 +17,11 @@ module API
     end
 
     def index
-      render json: current_user.cart.products
+      @products = if current_user.cart.present?
+                    current_user.cart.products
+                  else
+                    []
+                  end
     end
   end
 end
