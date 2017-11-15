@@ -6,19 +6,15 @@ module API
       if (product = Product.find_by(id: params[:product])).nil?
         render json: { message: "Invaild product_id" }, status: :bad_request
       else
-        cart = Cart.find_or_initialize_by(user: current_user)
+        cart = Cart.find_or_create_by(user: current_user)
         cart.products << product
-        if cart.save
-          render json: { message: "Item added to cart" }
-        else
-          render json: { errors: cart.errors.full_messages }, status: :bad_request
-        end
+        render json: { message: "Item added to cart" }
       end
     end
 
     def index
-      @products = if current_user.cart.present?
-                    current_user.cart.products
+      @cart_products = if current_user.cart.present?
+                    current_user.cart.carts_products.includes(:product).all
                   else
                     []
                   end
@@ -26,11 +22,8 @@ module API
     end
 
     def destroy
-      product = if current_user.cart.present?
-                  current_user.cart.products.where(id: params[:id])
-                end
-      if product.present?
-        current_user.cart.products.delete(product)
+      if current_user.cart.present? && current_user.cart.carts_products.where(id: params[:id]).present?
+        current_user.cart.carts_products.delete(params[:id])
         render json: { message: "Item removed from cart" }
       else
         render json: { message: "Can't find item in cart" }, status: :not_found

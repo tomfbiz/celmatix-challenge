@@ -16,7 +16,7 @@ export default {
       product:  {
       type: Object,
       default: () => ({
-        id: null,
+        cart_product_id: null,
         name: "",
         brand: "",
         model: "",
@@ -29,7 +29,7 @@ export default {
   }),
   methods: {
     delete_product() {
-      axios.delete('/api/cart-items/'+this.product.id)
+      axios.delete('/api/cart-items/'+this.product.cart_product_id)
       .then(response =>
         this.$emit("delete-product",this.product))
       .catch(error => {

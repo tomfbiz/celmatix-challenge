@@ -2,7 +2,8 @@ require "rails_helper"
 
 RSpec.describe Cart, type: :model do
   context "associations" do
-    it { should have_and_belong_to_many(:products) }
+    it { should have_many(:products) }
+    it { should have_many(:carts_products) }
     it { should belong_to(:user) }
   end
 

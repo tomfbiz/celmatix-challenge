@@ -1,7 +1,8 @@
 class Cart < ApplicationRecord
   belongs_to :user
   validates_uniqueness_of :user
-  has_and_belongs_to_many :products
+  has_many :carts_products
+  has_many :products, through: :carts_products
 
   def save(options = {})
     super
