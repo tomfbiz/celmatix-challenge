@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 
   root to: "shop#index"
+  get "/cart", to: "cart#index"
 
   namespace :api, defaults: { format: :json } do
     resources :products, only: [:index]
-    resources :cart_items, only: [:index, :create, :destroy]
+    resources :cart_items, path: "cart-items", only: [:index, :create, :destroy]
   end
 end
