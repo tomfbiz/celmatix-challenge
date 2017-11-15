@@ -1,0 +1,37 @@
+header>nav{
+  padding: 5px 10px;
+  background-color: #6a94ae;
+  min-height: 40px;
+  padding: 5px;
+
+  form, div {
+    display: inline-block;
+    vertical-align: top;
+  }
+  &,a {
+    color: #fff;
+  }
+  .title-area {
+      display: inline-block;
+      img {
+          height: 30px;
+          width: auto;
+      }
+  }
+  .top-bar-section {
+      display: inline-block;
+      float: right;
+      margin-right: 20px;
+  }
+}
+.page-container {
+  a {
+    color: black;
+  }
+  width: 900px;
+  margin: auto;
+
+}
+.page-header {
+  text-align: center;  
+}

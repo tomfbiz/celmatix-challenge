@@ -4,26 +4,29 @@
     <title>CelmatixChallenge</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
   </head>
 
   <body>
-  <h1>Celmatix Challenge</h1>
   <header>
-    <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign in', sign_in_path %>
-    <% end %>
+    <nav>
+    <div class="title-area"><img class="logo" src="http://celmatix.com/public/assets/logo.1T8L6CM.png" alt=""></div>
+    <div class="top-bar-section">
+      <% if signed_in? %>
+        <div><%= link_to "Sign out", sign_out_path, method: :delete %><div>
+      <% else %>
+        <%= link_to "Sign in", sign_in_path %>
+      <% end %>
+    </nav>
   </header>
   <div id="flash">
     <% flash.each do |key, value| %>
       <div class="flash <%= key %>"><%= value %></div>
     <% end %>
   </div>
-  
-  <%= yield %>
+  <div class="page-container">
+    <%= yield %>
+  </div>
   </body>
 </html>
