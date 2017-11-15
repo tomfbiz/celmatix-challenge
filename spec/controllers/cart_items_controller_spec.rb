@@ -22,6 +22,7 @@ RSpec.describe API::CartItemsController, type: :controller do
 
       expect(response).to have_http_status(:unauthorized)
     end
+
     it "fails when product id is invalid" do
       user = create(:user)
       sign_in_as(user)
@@ -29,9 +30,10 @@ RSpec.describe API::CartItemsController, type: :controller do
       post :create, params: { product: -99 }
 
       expect(response).to have_http_status(:bad_request)
-      expect(user.cart).to be_nil
+      expect(user.reload.cart).to be_nil
     end
   end
+
   describe "index" do
     it "lists items" do
       user = create(:user)
