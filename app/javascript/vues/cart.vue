@@ -1,43 +1,40 @@
 <template>
   <div>
-      CART
     <div class="error-message">{{message}} </div>
-    <div id="app"  class="product-list">
-      <product-modal v-if="showModal" :product="modalProduct" @close="showModal = false"></product-modal>
-      <div v-for="product in products">
-        <product-grid-item :product="product" v-on:show-details="showDetails"></product-grid-item>
-      </div>
+    <div id="cart">
+        <cart-item 
+        v-for="product in products"
+        :product="product" 
+        v-on:delete-product="deleteProduct(product)">
+        </cart-item>
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import cartItem from './cart_item.vue'
+
 export default {
   components: {
-    productGridItem,
-    productModal
+    cartItem
   },
   data: function () {
     return {
       products: {},
-      modalProduct: {},
-      showModal: false,
       message: ""
-
     }
   },
   methods: {
-    showDetails(product) {
-      this.modalProduct = product;
-      this.showModal = true;
+    deleteProduct(product) {
+      this.products.splice(this.products.indexOf(product), 1)
     }
   },
   created() {
     let token = document.getElementsByName('csrf-token')[0].getAttribute('content');
     axios.defaults.headers.common['X-CSRF-Token'] = token;
     axios.defaults.headers.common['Accept'] = 'application/json';
-    axios.get('/api/products')
+    axios.get('/api/cart-items')
       .then(response =>
       this.products = response.data.products)
       .catch(error => {

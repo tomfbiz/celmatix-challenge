@@ -17,7 +17,6 @@ gem "clearance", "~> 1.16.1"
 gem "coffee-rails", "~> 4.2"
 gem "figaro", "~> 1.1.1"
 gem "jbuilder", "~> 2.7"
-gem "turbolinks", "~> 5"
 
 group :development, :test do
   gem "factory_bot_rails"

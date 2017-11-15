@@ -24,7 +24,6 @@ export default {
     }
   },
   data: () => ({
-    test: 123
   }),
   methods: {
     request_modal() {
