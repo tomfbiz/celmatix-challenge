@@ -5,9 +5,10 @@
         <cart-item 
         v-for="product in products"
         :product="product" 
-        v-on:delete-product="deleteProduct(product)">
+        v-on:delete-product="delete_product(product)">
         </cart-item>
     </div>
+    <button v-if="products.length  > 0" @click="make_order" class="order-button">Order these items</button>
   </div>
 </template>
 
@@ -21,13 +22,29 @@ export default {
   },
   data: function () {
     return {
-      products: {},
+      products: [],
       message: ""
     }
   },
   methods: {
-    deleteProduct(product) {
+    delete_product(product) {
       this.products.splice(this.products.indexOf(product), 1)
+    },
+    make_order() {
+      axios.post("/api/orders").then(response => {
+        debugger;
+        this.message = response.data.message;
+        this.products=[]})
+       .catch(error => {
+        if (error.response.status == 401) {
+          this.message = "please log in";
+        } else if (error.response.data.errors){
+          this.message = error.response.data.errors.join(" <br>")
+        } else {
+          this.message =  error.response.statusText;
+        }
+      })
+
     }
   },
   created() {
@@ -36,7 +53,7 @@ export default {
     axios.defaults.headers.common['Accept'] = 'application/json';
     axios.get('/api/cart-items')
       .then(response =>
-      this.products = response.data.products)
+        this.products = response.data.products)
       .catch(error => {
         if (error.response.status == 401) {
           this.message = "please log in";
@@ -61,5 +78,10 @@ div.error-message {
   padding: 10px 0;
   font-weight: bold;
   min-height: 1em;
+}
+button.order-button {
+  margin-top: 20px;
+  font-size: 1em;
+  border-radius: 2px;
 }
 </style>
