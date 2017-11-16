@@ -20,7 +20,8 @@ RSpec.describe "API::Order", type: :request do
 
       post api_orders_path(as: user)
 
-      expect(response).to have_http_status(:success)      
+      expect(response).to have_http_status(:success)
+      expect(json["message"]).to include("No cart to create order from")
     end
 
     it "returns unauthorized when not logged in" do

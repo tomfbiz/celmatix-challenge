@@ -1,13 +1,13 @@
 module API
   class OrdersController < ApplicationController
     before_action :authenticate_user_api!
-    
 
     def create
-      if Order.build_from_cart(user: current_user)
+      order_builder = OrderBuilder.new(user: current_user)
+      if order_builder.build
         render json: { message: "Order creates successfully" }
       else
-        render json: { emessage: "Unable to build order" }
+        render json: { message: order_builder.errors.full_messages }
       end
     end
   end
