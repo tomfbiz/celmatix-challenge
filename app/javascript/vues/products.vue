@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="error-message">{{message}} </div>
-    <div id="app"  class="product-list">
+    <div class="product-list">
       <product-modal v-if="showModal" :product="modalProduct" @close="showModal = false"></product-modal>
       <div v-for="product in products">
         <product-grid-item :product="product" v-on:show-details="showDetails"></product-grid-item>
@@ -36,8 +36,6 @@ export default {
     }
   },
   created() {
-    let token = document.getElementsByName('csrf-token')[0].getAttribute('content');
-    axios.defaults.headers.common['X-CSRF-Token'] = token;
     axios.defaults.headers.common['Accept'] = 'application/json';
     axios.get('/api/products')
       .then(response =>
