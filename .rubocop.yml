@@ -651,3 +651,11 @@ Rails/TimeZone:
 Rails/Validation:
   Description: 'Use validates :attribute, hash of validations.'
   Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'config/routes.rb'
+
+Style/SymbolProc:
+  Exclude:
+    - 'config/routes.rb'

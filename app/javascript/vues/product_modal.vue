@@ -7,7 +7,7 @@
             brand: {{product.brand}}<br>
             model: {{product.model}}<br>
             ${{product.price}}
-            <p>{{product.description}}</p>
+            <p v-html="product.desc"></p>
             <button class="submit" @click="add_to_cart">Add to cart</button>
             <div class="error-message">{{message}}</div>
         </div>
