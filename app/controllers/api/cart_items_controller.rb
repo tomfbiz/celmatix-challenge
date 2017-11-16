@@ -14,10 +14,10 @@ module API
 
     def index
       @cart_products = if current_user.cart.present?
-                    current_user.cart.carts_products.includes(:product).all
-                  else
-                    []
-                  end
+                         current_user.cart.carts_products.includes(:product).all
+                       else
+                         []
+                       end
       render formats: :json
     end
 
