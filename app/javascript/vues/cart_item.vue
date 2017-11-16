@@ -49,7 +49,7 @@ export default {
 <style scoped>
 .cart-item {
   padding: 10px 5px 5px 5px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 3px solid #ccc;
 }
 div.name {
   float: left;
@@ -63,5 +63,10 @@ div.price {
 button {
   float: right;
   margin-top: -2em;
+  }
+  .error-message {
+    min-height: 0.5em;
+    padding: 5px 10px;
+    font-size: 0.8em
   }
 </style>
