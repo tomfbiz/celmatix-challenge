@@ -25,5 +25,6 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :create]
     resources :cart_items, path: "cart-items", only: [:index, :create, :destroy]
     resources :users, only: [:index]
+    resources :orders, only: [:create]
   end
 end
