@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get "/cart", to: "pages#show", page: "cart"
 
   namespace :api, defaults: { format: :json } do
-    resources :products, only: [:index]
+    resources :products, only: [:index, :create]
     resources :cart_items, path: "cart-items", only: [:index, :create, :destroy]
   end
 end
