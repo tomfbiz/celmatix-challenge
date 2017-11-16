@@ -41,7 +41,7 @@ export default {
         if (error.response.status == 401) {
           this.message = "please log in";
         } else {
-          this.message = this.get_error_message(error);
+          this.message = error.response.data.errors[0] || error.response.statusText;
         }
       })
   }
