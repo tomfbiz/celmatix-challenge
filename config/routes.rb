@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 
-  root to: "shop#index"
-  get "/cart", to: "cart#index"
+  root to: "pages#show", page: "shop"
+  get "/cart", to: "pages#show", page: "cart"
 
   namespace :api, defaults: { format: :json } do
     resources :products, only: [:index]
