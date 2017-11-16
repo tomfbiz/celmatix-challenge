@@ -29,5 +29,14 @@ RSpec.describe "Products", type: :request do
       expect(response).to have_http_status(:unauthorized)
       expect(Product.find_by(sku: TEST_SKU)).to be_falsey
     end
+
+    it "fails with missing required fields" do
+      user = create(:admin_user)
+      post api_products_path(as: user),
+        params: { product: attributes_for(:product, name: nil, sku: TEST_SKU) }
+
+      expect(response).to have_http_status(:bad_request)
+      expect(Product.find_by(sku: TEST_SKU)).to be_falsey
+    end
   end
 end
