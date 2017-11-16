@@ -1,6 +1,6 @@
 <template>
   <div class="form-wrapper">
-    <div class="error-message">{{message}} </div>
+    <div class="error-message" v-html="message"></div>
   <form id="new-product-form" action="#">
     <div>
       <label for="name">Product name</label>
@@ -47,8 +47,10 @@ export default {
         .catch(error => {
           if (error.response.status == 401) {
             this.message = "please log in as Admin";
+          } else if (error.response.data.errors){
+            this.message = error.response.data.errors.join(" <br>")
           } else {
-            this.message = error.response.data.errors || error.response.statusText;
+            this.message =  error.response.statusText;
           }
         })
       }
@@ -67,7 +69,6 @@ function valid_form() {
   if (typeof form.checkValidity == "function") {
     is_valid = form.checkValidity();
     if (!is_valid) {
-      console.log("not valid");
       document.querySelector("form#new-product-form input[type='submit']").click();
     }
   }

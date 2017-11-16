@@ -9,7 +9,7 @@
             ${{product.price}}
             <p v-html="product.desc"></p>
             <button class="submit" @click="add_to_cart">Add to cart</button>
-            <div class="error-message">{{message}}</div>
+            <div class="error-message" v-html="message"></div>
         </div>
       </div>
     </div>
@@ -44,8 +44,10 @@ export default {
         .catch(error => {
           if (error.response.status == 401) {
             this.message = "please sign in";
+          } else if (error.response.data.errors){
+            this.message = error.response.data.errors.join(" <br>")
           } else {
-            this.message = error.response.data.errors[0] || error.response.statusText;
+            this.message =  error.response.statusText;
           }
         })
     }

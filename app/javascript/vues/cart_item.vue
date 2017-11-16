@@ -3,7 +3,7 @@
     <div class="name">{{ product.name }}</div>
     <div class="price">${{product.price}}</div>
     <button @click="delete_product">Remove from cart</button>
-    <div class="error-message">{{message}} </div>
+    <div class="error-message" v-html="message"></div>
 
   </div>
 </template>
@@ -35,8 +35,10 @@ export default {
       .catch(error => {
         if (error.response.status == 401) {
           this.message = "please log in";
+        } else if (error.response.data.errors){
+          this.message = error.response.data.errors.join(" <br>")
         } else {
-          this.message = error.response.data.errors || error.response.statusText;
+          this.message =  error.response.statusText;
         }
       })
 
