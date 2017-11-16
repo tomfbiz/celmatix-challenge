@@ -36,7 +36,7 @@ RSpec.describe "CartItems", type: :request do
       create(:cart, user: user)
       products = create_list(:product, 3)
       user.cart.products = products
-      delete api_cart_item_path(products.first.id, as: user)
+      delete api_cart_item_path(user.cart.carts_products.first.id, as: user)
 
       expect(response).to have_http_status(200)
       expect(user.cart.reload.products).to eq([products[1], products[2]])
