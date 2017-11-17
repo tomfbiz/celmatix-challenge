@@ -42,8 +42,10 @@ export default {
     saveProduct(product) {
       if (valid_form()) { 
         axios.post('/api/products',{product: this.product})
-        .then(response =>
-        this.message = response.data.message)
+        .then(response => {
+          this.message = response.data.message;
+          this.product = {}
+          })
         .catch(error => {
           if (error.response.status == 401) {
             this.message = "please log in as Admin";
@@ -72,6 +74,7 @@ function valid_form() {
       document.querySelector("form#new-product-form input[type='submit']").click();
     }
   }
+  debugger;
   return(is_valid);
 }
 </script>
