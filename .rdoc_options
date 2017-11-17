@@ -5,7 +5,7 @@ rdoc_include:
 - "."
 - "/Users/tomfreudenheim/Documents/development/celmatix/celmatix_challenge"
 charset: UTF-8
-exclude: !ruby/regexp /(?-mix:node_modules\/)|(?-mix:coverage\/)|(?-mix:log\/)|(?-mix:public\/)|(?-mix:tmp\/)/
+exclude: !ruby/regexp /(?-mix:node_modules\/)|(?-mix:coverage\/)|(?-mix:log\/)|(?-mix:public\/)|(?-mix:tmp\/)/|(?-mix:assets\/)|(?-mix:js$)|(?-mix:js$)|(?-mix:vue$)|(?-mix:haml$)|(?-mix:jbuilder$)/
 hyperlink_all: false
 line_numbers: false
 locale: 
