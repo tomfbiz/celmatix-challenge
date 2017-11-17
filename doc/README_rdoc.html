@@ -69,7 +69,7 @@
 
   <ul class="link-list">
   
-    <li><a href="./README_md.html">README</a>
+    <li><a href="./README_rdoc.html">README</a>
   
   </ul>
 </div>
@@ -77,7 +77,7 @@
   </div>
 </nav>
 
-<main role="main" aria-label="Page README.md">
+<main role="main" aria-label="Page README.rdoc">
 
 <h1 id="label-CELMATIX_CHALLENGE">CELMATIX_CHALLENGE<span><a href="#label-CELMATIX_CHALLENGE">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
@@ -88,30 +88,50 @@ href="https://celmatix-challenge-tomfbiz.herokuapp.com">celmatix-challenge-tomfb
 The code is at <a
 href="https://github.com/tomfbiz/celmatix-challenge">github.com/tomfbiz/celmatix-challenge</a></p>
 
-<h1 id="label-Requirements">Requirements<span><a href="#label-Requirements">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<h2 id="label-Requirements">Requirements<span><a href="#label-Requirements">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
-<p>The development environment requires  * ruby 2.3.1  * rails 5.1.4  * node
-6.11.2  * yarn</p>
+<p>The development environment requires:</p>
+<ul><li>
+<p>ruby 2.3.1</p>
+</li><li>
+<p>rails 5.1.4</p>
+</li><li>
+<p>node 6.11.2</p>
+</li><li>
+<p>yarn</p>
+</li></ul>
 
 <p>To install prerequisits:</p>
 
-<p>rvm install 2.3.5  rvm use 2.3.5  nvm install 6.11.2  nvm use 6.11.2  brew
-install yarn</p>
+<pre>rvm install 2.3.5
+rvm use 2.3.5
+nvm install 6.11.2
+nvm use 6.11.2
+brew install yarn</pre>
 
 <h2 id="label-Configuration-3A">Configuration:<span><a href="#label-Configuration-3A">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
 <p>“secret” ENV settings (set in application.yml in development, and by
-Sendgrid Heroku add-on in production)  * SENDGRID_PASSWORD  *
-SENDGRID_USERNAME</p>
+Sendgrid Heroku add-on in production)</p>
+<ul><li>
+<p>SENDGRID_PASSWORD</p>
+</li><li>
+<p>SENDGRID_USERNAME</p>
+</li></ul>
 
-<p>To load the products from JSON run the following rake tast:  * rake
-data:load_products</p>
+<p>To load the products from JSON run the following rake tast:</p>
+
+<pre class="ruby"><span class="ruby-identifier">rake</span> <span class="ruby-identifier">data</span>:<span class="ruby-identifier">load_products</span>
+</pre>
 
 <h2 id="label-DBT-1">DBT-1<span><a href="#label-DBT-1">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
-<p>To dump the sql database schema, run  * rake <a
-href="filename">db:structure_with_name</a> This will put the sql file in
-tmp/<em>filename</em></p>
+<p>To dump the sql database schema, run:</p>
+
+<pre class="ruby"><span class="ruby-identifier">rake</span> <span class="ruby-identifier">db</span>:<span class="ruby-identifier">structure_with_name</span>[<span class="ruby-identifier">_filename_</span>]
+</pre>
+
+<p>This will put the sql file in tmp/<em>filename</em></p>
 </main>
 
 

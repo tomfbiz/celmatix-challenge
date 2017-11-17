@@ -1,0 +1,35 @@
+= CELMATIX_CHALLENGE
+
+This app was created using webpack and vue.js
+
+It is deployed at https://celmatix-challenge-tomfbiz.herokuapp.com
+The code is at https://github.com/tomfbiz/celmatix-challenge
+
+== Requirements
+The development environment requires:
+* ruby 2.3.1
+* rails 5.1.4
+* node 6.11.2
+* yarn
+
+To install prerequisits:
+  rvm install 2.3.5
+  rvm use 2.3.5
+  nvm install 6.11.2
+  nvm use 6.11.2
+  brew install yarn
+  
+
+== Configuration:
+"secret" ENV settings (set in application.yml in development, and by Sendgrid Heroku add-on in production)
+* SENDGRID_PASSWORD
+* SENDGRID_USERNAME
+
+
+To load the products from JSON run the following rake tast:
+  rake data:load_products
+
+== DBT-1
+To dump the sql database schema, run:
+  rake db:structure_with_name[_filename_]
+This will put the sql file in tmp/_filename_
