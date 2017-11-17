@@ -6,7 +6,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem "haml-rails", "~> 1.0"
 gem "pg", "~> 0.18"
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.4"
@@ -17,7 +16,9 @@ gem "webpacker"
 gem "clearance", "~> 1.16.1"
 gem "coffee-rails", "~> 4.2"
 gem "figaro", "~> 1.1.1"
+gem "haml-rails", "~> 1.0"
 gem "jbuilder", "~> 2.7"
+gem "rdoc"
 
 group :development, :test do
   gem "factory_bot_rails"

@@ -1,0 +1,23 @@
+--- !ruby/object:RDoc::Options
+encoding: UTF-8
+static_path: []
+rdoc_include:
+- "."
+- "/Users/tomfreudenheim/Documents/development/celmatix/celmatix_challenge"
+charset: UTF-8
+exclude: !ruby/regexp /(?-mix:node_modules\/)|(?-mix:coverage\/)|(?-mix:log\/)|(?-mix:public\/)|(?-mix:tmp\/)/
+hyperlink_all: false
+line_numbers: false
+locale: 
+locale_dir: locale
+locale_name: 
+main_page: README.rdoc
+markup: rdoc
+output_decoration: true
+page_dir: 
+show_hash: false
+tab_width: 8
+template_stylesheets: []
+title: 
+visibility: :protected
+webcvs: 
