@@ -38,3 +38,15 @@ header>nav{
 .page-header {
   text-align: center;  
 }
+#clearance {
+  input[type="submit"] {
+    font-size: 1em;
+    margin-top: 6px;
+  }
+  .other-links {
+    margin-top: 20px;
+    a {
+      padding-right: 10px;
+    }
+  }
+}
