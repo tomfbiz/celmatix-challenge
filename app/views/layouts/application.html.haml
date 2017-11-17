@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title CelmatixChallenge
+    = csrf_meta_tags
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload"
+    = javascript_include_tag "application", "data-turbolinks-track": "reload"
+  %body
+    %header
+      %nav
+        .title-area
+          %img.logo{:alt => "", :src => "http://celmatix.com/public/assets/logo.1T8L6CM.png"}/
+        .top-bar-section
+          - if signed_in?
+            %div
+              = link_to "Sign out", sign_out_path, method: :delete
+          - else
+            = link_to "Sign in", sign_in_path
+      #flash
+      - flash.each do |key, value|
+        %div{:class => "flash #{key}"}= value
+      .page-container
+        = yield
