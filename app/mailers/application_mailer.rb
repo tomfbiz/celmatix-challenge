@@ -1,4 +1,4 @@
-# sets defaults for child +mailer+ classes.
+# Sets defaults for child +mailer+ classes
 class ApplicationMailer < ActionMailer::Base
   default from: "noreply@celmatixchallenge.com"
   layout "mailer"

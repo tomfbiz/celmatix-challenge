@@ -96,6 +96,9 @@
 
   <section class="description">
     
+<p>All controllers inherit from this, both page and <a href="API.html">API</a>
+controllers</p>
+
   </section>
 
   
@@ -135,7 +138,7 @@ failing, which will prevent the controller action from running</p>
 
 <h4 id="method-i-authenticate_user_api-21-label-Parameters">Parameters<span><a href="#method-i-authenticate_user_api-21-label-Parameters">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
-<p><code>require: :any</code> - If set to :admin verifys that the logged in
+<p><code>require: :any</code> - If set to :admin verifies that the logged in
 usr is admin</p>
 </li></ul>
           
@@ -143,7 +146,7 @@ usr is admin</p>
 
           
           <div class="method-source-code" id="authenticate_user_api-21-source">
-            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 10</span>
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">authenticate_user_api!</span>(<span class="ruby-identifier">require</span><span class="ruby-operator">:</span> <span class="ruby-value">:any</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">blank?</span>
     <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">errors</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Not authenticated&quot;</span> }, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unauthorized</span>

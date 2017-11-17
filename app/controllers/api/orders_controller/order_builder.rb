@@ -2,7 +2,7 @@ module API
   class OrdersController < ApplicationController
     # Plain Old Ruby Object to create an +order+ out of a +cart+
     class OrderBuilder
-      # Object containing error messages when build fails
+      # Object containing error messages when build fails.
       # Built like a ruby error object.
       # Responds to +full_messages+ with an array of strings
       attr_reader :errors

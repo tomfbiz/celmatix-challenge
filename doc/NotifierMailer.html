@@ -85,6 +85,8 @@
 
   <section class="description">
     
+<p>Mailer used for notifying users</p>
+
   </section>
 
   
@@ -124,13 +126,13 @@ when a user signs up</p>
 
 <h4 id="method-i-welcome-label-Parameters">Parameters<span><a href="#method-i-welcome-label-Parameters">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
-<p><code>user</code> – record for user that just signed up.</p>
+<p><code>user</code> – record for user that just signed up</p>
           
           
 
           
           <div class="method-source-code" id="welcome-source">
-            <pre><span class="ruby-comment"># File app/mailers/notifier_mailer.rb, line 7</span>
+            <pre><span class="ruby-comment"># File app/mailers/notifier_mailer.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">welcome</span>(<span class="ruby-identifier">user</span>)
   <span class="ruby-identifier">mail</span>(<span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>, <span class="ruby-identifier">subject</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Welcome to Celmatix Ecommerce&quot;</span>)
 <span class="ruby-keyword">end</span></pre>

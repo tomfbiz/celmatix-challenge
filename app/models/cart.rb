@@ -7,7 +7,7 @@ class Cart < ApplicationRecord
   has_many :products, through: :carts_products
 
   # Rescues +ActiveRecord::RecordNotUnique+.
-  # Vecause of +validates_uniqueness_of+, this will only happen in a race condition
+  # Because of +validates_uniqueness_of+, this will only happen in a race condition
   def save(options = {})
     super
   rescue ActiveRecord::RecordNotUnique

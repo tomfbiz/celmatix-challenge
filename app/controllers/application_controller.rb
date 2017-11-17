@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   # Renders errors when failing, which will prevent the controller action from running
   # ==== Parameters
   #
-  # * <tt>require: :any</tt> - If set to :admin verifys that the logged in usr is admin
+  # * <tt>require: :any</tt> - If set to :admin verifies that the logged in usr is admin
   def authenticate_user_api!(require: :any)
     if current_user.blank?
       render json: { errors: "Not authenticated" }, status: :unauthorized

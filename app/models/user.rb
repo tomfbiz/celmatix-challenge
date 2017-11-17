@@ -1,4 +1,4 @@
-# Inclues Clearance user functionality.
+# Inclues <tt>Clearance::User</tt> functionality (psudo-inheritance)
 class User < ApplicationRecord
   include Clearance::User
   has_one :cart
