@@ -1,6 +1,14 @@
+# Extends from <tt>Clearance::UsersController</tt>
+#
+# +after_action+ sends  welcome email afte the +create+ action is called,
+# if the user was created succcessfully
+#
+# successful user creation is detected when signed_in? is true
+# and the response.status is REDIRECT_STATUS
 class UsersController < Clearance::UsersController
   after_action :send_welcome_email, only: :create
 
+  # HTTP status for redirect (offically "found")
   REDIRECT_STATUS = 302
 
   private

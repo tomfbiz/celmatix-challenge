@@ -1,6 +1,15 @@
 module API
+  # Verifies user is authenticated before any actions are run
   class CartItemsController < ApplicationController
     before_action :authenticate_user_api!
+
+    # Adds a product to cart
+    # Finds the cart using +current_user+
+    # Creates the cart if one doesn't exist
+    # renders an error if the product_id is invalid
+    # ==== expected Params
+    #
+    # * product -- the product_id to add
 
     def create
       if (product = Product.find_by(id: params[:product])).nil?
@@ -12,6 +21,7 @@ module API
       end
     end
 
+    # Renders items in the cart in JSON
     def index
       @cart_products = if current_user.cart.present?
                          current_user.cart.carts_products.includes(:product).all
@@ -21,6 +31,12 @@ module API
       render formats: :json
     end
 
+    # Removes a product from the cart
+    # Finds the cart using +current_user+
+    # renders an error user does not have a cart or the product_id is not in the cart
+    # ==== expected Params
+    #
+    # * id -- the product_id to add (from URL)
     def destroy
       if current_user.cart.present? && current_user.cart.carts_products.where(id: params[:id]).present?
         current_user.cart.carts_products.delete(params[:id])
