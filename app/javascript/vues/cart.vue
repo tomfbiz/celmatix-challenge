@@ -10,7 +10,7 @@
         v-on:delete-product="delete_product(product)">
         </cart-item>
     </div>
-    <button v-if="products.length  > 0" @click="make_order" class="order-button">Order these items</button>
+    <button v-if="products.length  > 0" @click="make_order" class="order-button">Buy these items</button>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <div class="tab-container">
       <a href="#" class="tab first" 
         v-bind:class="{selected: showing_products}"
@@ -40,8 +40,10 @@ export default {
 </script>
 
 <style>
-div.container {
+div.wrapper {
   width: 1000px;
+}
+div.container {
   margin: auto;
   border: solid #ccc 1px;
 }
