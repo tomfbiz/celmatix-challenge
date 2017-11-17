@@ -19,7 +19,7 @@ To install prerequisits:
   nvm use 6.11.2
   brew install yarn
 
-You MUST run the following command to after downloading the app:
+You MUST run the following command to finish install after downloading the app:
   yarn
   
 
