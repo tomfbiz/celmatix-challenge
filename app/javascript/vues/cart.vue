@@ -1,9 +1,11 @@
 <template>
   <div>
     <div class="error-message" v-html="message"></div>
-    <div id="cart">
+    <div v-if="!products.length" class="empty-message">You cart is empty.</div>
+    <div v-else class="cart-container">
         <cart-item 
         v-for="product in products"
+        :key="product.cart_product_id"
         :product="product" 
         v-on:delete-product="delete_product(product)">
         </cart-item>
@@ -68,10 +70,9 @@ export default {
 </script>
 
 <style>
-.product-list {
-  display: grid;
-  grid-template-columns: 300px 300px 300px;
-  grid-gap: 10px;
+.cart-container {
+  width: 80%;
+  margin: auto;
 }
 
 div.error-message {
@@ -79,9 +80,16 @@ div.error-message {
   font-weight: bold;
   min-height: 1em;
 }
+
+div.empty-message {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+}
 button.order-button {
-  margin-top: 20px;
+  margin: 10px auto;
   font-size: 1em;
-  border-radius: 2px;
+  border-radius: 3px;
+  display: block;
 }
 </style>

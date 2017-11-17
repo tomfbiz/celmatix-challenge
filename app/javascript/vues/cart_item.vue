@@ -50,7 +50,7 @@ export default {
 
 <style scoped>
 .cart-item {
-  padding: 10px 5px 5px 5px;
+  padding: 15px 5px 0 5px;
   border-bottom: 3px solid #ccc;
 }
 div.name {

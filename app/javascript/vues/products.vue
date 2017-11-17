@@ -58,6 +58,7 @@ export default {
   display: grid;
   grid-template-columns: 300px 300px 300px;
   grid-gap: 10px;
+  justify-content: center;
 }
 
 div.error-message {

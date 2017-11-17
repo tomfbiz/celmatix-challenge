@@ -12,13 +12,10 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 
-  root to: "pages#show", page: "shop"
-  get "/cart", to: "pages#show", page: "cart"
+  root to: "pages#show", page: "home"
 
   constraints Clearance::Constraints::SignedIn.new { |user| user.admin? } do
     get "/admin", to: "pages#show", page: "admin"
-    get "/list-users", to: "pages#show", page: "list_users"
-    get "/products/new", to: "pages#show", page: "new_product"
   end
 
   namespace :api, defaults: { format: :json } do

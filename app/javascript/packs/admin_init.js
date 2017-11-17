@@ -1,9 +1,9 @@
 import Vue from 'vue/dist/vue.esm'
-import Cart from '../vues/cart.vue'
+import admin from '../vues/admin.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
-    render: h => h(Cart) 
-  }).$mount('#cart');
+    render: h => h(admin) 
+  }).$mount('#admin');
 
 })

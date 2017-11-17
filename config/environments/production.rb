@@ -62,13 +62,12 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "celmatix_challenge_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-  # change this once we have the heroku host name. Use Herok sendgrid config.
-  config.action_mailer.default_url_options = { host: "tomfreudenheim.com" }
+  config.action_mailer.default_url_options = { host: "celmatix-challenge-tomfbiz.herokuapp.com" }
 
   config.action_mailer.smtp_settings = {
     user_name: ENV["SENDGRID_USERNAME"],
     password: ENV["SENDGRID_PASSWORD"],
-    domain: "celmatix_challenge.com",
+    domain: "celmatixchallenge.com",
     address: "smtp.sendgrid.net",
     port: 587,
     authentication: :plain,

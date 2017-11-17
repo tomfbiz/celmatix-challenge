@@ -52,8 +52,8 @@ div.error-message {
 
 div.user-email, div.user-created-at {
   display: inline-block;
-  min-width: 300px;
-  padding: 5px;
+  min-width: 280px;
+  padding: 5px 5px 5px 25px;
 }
 
 div.header {

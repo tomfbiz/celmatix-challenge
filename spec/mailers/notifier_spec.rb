@@ -9,7 +9,7 @@ RSpec.describe NotifierMailer, type: :mailer do
 
       expect(mail.subject).to match("Welcome")
       expect(mail.to).to eq([user.email])
-      expect(mail.from).to eq(["noreplay@celmatixChallenge.com"])
+      expect(mail.from).to eq(["noreply@celmatixchallenge.com"])
     end
 
     it "renders the body" do
