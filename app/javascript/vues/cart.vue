@@ -76,7 +76,7 @@ export default {
 }
 
 div.error-message {
-  padding: 10px 0;
+  padding: 10px;
   font-weight: bold;
   min-height: 1em;
 }
